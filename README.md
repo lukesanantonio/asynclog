@@ -1,2 +1,4 @@
 # asynclog
-A small, fast, asynchronous, type-safe C++ logging library.
+A small, fast, colorful, asynchronous, type-safe C++ logging library.
+
+Depends on libuv.
