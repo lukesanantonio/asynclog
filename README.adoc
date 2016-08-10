@@ -1,0 +1,66 @@
+= asynclog
+Luke San Antonio Bialecki<lukesanantonio@gmail.com>
+
+A small, fast, colorful, asynchronous, type-safe C++ logging library. Uses libuv.
+
+Go ahead and copy files from this repo. Then include log.h somewhere in your
+project, for example:
+
+    #include "al/log.h"
+
+Initialize. The logger will be automatically uninitialized at the end of the
+scope, when `raii` is destructed.
+
+    al::Scoped_Log_Init raii;
+
+== Unconditional logging:
+
+Each message includes time and severity, with an added color. Check log.cpp to
+change the escape codes used for each severity.
+
+Prints "Hello, World" as an error
+
+    al::log_e("Hello, World!");
+
+Prints the warning `Player at (5.0, 12.0, 1.0)`
+
+    glm::vec3 pos(5.0f, 12.0f, 1.0f);
+    al::log_w("Player at (%, %, %)", pos.x, pos.y, pos.z);
+
+Prints "Hello, World" as debug information
+
+    al::log_d("%, %", "Hello", "World");
+
+Anything that supports to_string works in the % replacement!
+
+== Conditional logging:
+
+These messages can be turned off by defining `AL_DISABLE_LOGGING` before
+including log.h.
+
+Logs "Hello, Luke" as "information".
+
+    // Log a conditional information message the same way, C strings work too!
+    const char *const player_name = "Luke";
+    AL_LOG_I("Hello, %", player_name);
+
+= Translation:
+
+Load in a mapping from semantic strings to strings in a language
+
+    #include "al/translate.h"
+
+    al::Lang lang;
+    lang.dict.push_back({"greeting", "Nice to meet you, %!"});
+
+    al::set_lang(lang);
+
+Build the actual message using replacement featured earlier:
+
+    std::string message = al::t("greeting", "Luke");
+
+Or if you want to be more explicit:
+
+    std::string message = al::translate("greeting", "Luke");
+
+No matter which you chose, message now equals "Nice to meet you, Luke".

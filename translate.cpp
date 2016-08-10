@@ -1,9 +1,12 @@
 /*
- * Copyright (C) 2015 Luke San Antonio
+ * Copyright (c) 2016 Luke San Antonio Bialecki
  * All rights reserved.
+ *
+ * Released under the BSD 2-clause license. See LICENSE in the top-level source
+ * tree for the entire license text.
  */
 #include "translate.h"
-namespace redc
+namespace al
 {
   Lang language_;
 

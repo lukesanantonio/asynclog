@@ -1,6 +1,9 @@
 /*
- * Copyright (C) 2015 Luke San Antonio
+ * Copyright (c) 2016 Luke San Antonio Bialecki
  * All rights reserved.
+ *
+ * Released under the BSD 2-clause license. See LICENSE in the top-level source
+ * tree for the entire license text.
  */
 #include "log.h"
 #include <string>
@@ -8,7 +11,7 @@
 #include <cstring>
 #include <uv.h>
 #include "thread_local.h"
-namespace redc
+namespace al
 {
   Scoped_Log_Init::Scoped_Log_Init() noexcept
   {
@@ -20,7 +23,7 @@ namespace redc
     uninit_log();
   }
 
-  REDC_THREAD_LOCAL uv_loop_t* loop_ = nullptr;
+  AL_THREAD_LOCAL uv_loop_t* loop_ = nullptr;
   Log_Severity out_level_ = Log_Severity::Debug;
   Log_Severity file_level_ = Log_Severity::Debug;
   bool good_file_ = false;

@@ -1,13 +1,17 @@
 /*
- * Copyright (C) 2015 Luke San Antonio
+ * Copyright (c) 2015 Luke San Antonio Bialecki
  * All rights reserved.
+ *
+ * Released under the BSD 2-clause license. See LICENSE in the top-level source
+ * tree for the entire license text.
  */
-#pragma once
+#ifndef ASYNCLOG_UTILITY_H
+#define ASYNCLOG_UTILITY_H
 #include <type_traits>
 #include <functional>
 #include <vector>
 #include <string>
-namespace redc
+namespace al
 {
   namespace detail
   {
@@ -161,3 +165,4 @@ namespace redc
     return vector_cast<Dest>(v, [](const SP& p) { return p.get(); });
   }
 }
+#endif // ASYNCLOG_UTILITY_H

@@ -1,13 +1,17 @@
 /*
- * Copyright (C) 2015 Luke San Antonio
+ * Copyright (c) 2015 Luke San Antonio Bialecki
  * All rights reserved.
+ *
+ * Released under the BSD 2-clause license. See LICENSE in the top-level source
+ * tree for the entire license text.
  */
-#pragma once
+#ifndef ASYNCLOG_TRANSLATE_H
+#define ASYNCLOG_TRANSLATE_H
 #include <string>
 #include <type_traits>
 #include <unordered_map>
 #include "utility.h"
-namespace redc
+namespace al
 {
   struct Lang
   {
@@ -120,3 +124,4 @@ namespace redc
     return format_str(str, std::forward<Args>(args)...);
   }
 }
+#endif // ASYNCLOG_TRANSLATE_H
