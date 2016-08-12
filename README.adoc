@@ -1,7 +1,12 @@
 = asynclog
+:imagesdir: images
 Luke San Antonio Bialecki<lukesanantonio@gmail.com>
 
 A small, fast, colorful, asynchronous, type-safe C++ logging library. Uses libuv.
+
+Example output:
+
+image::screenshot.png[Example Screenshot]
 
 Go ahead and copy files from this repo. Then include log.h somewhere in your
 project, for example:
